@@ -19,7 +19,7 @@ class ProblemInstance:
     # -----------------------------
     # Builder
     # -----------------------------
-    def parseProblemInstance(self, inputFileName = "resource/input/parameter.txt"):
+    def parseProblemInstance(self, normalize=True, inputFileName = "resource/input/parameter.txt"):
         file            = open(inputFileName)
 
         self.nbrIteraton= int(nextMeaningLine(file))
@@ -38,6 +38,8 @@ class ProblemInstance:
             for feature in xrange(featureDimension):
                 self.trainingSample_feature[sample][feature] = float(nextMeaningLine(file))
 
+        if (normalize == True):
+            self.normalize()
         file.close()
 
     # -----------------------------
@@ -104,9 +106,30 @@ class ProblemInstance:
             scalar  -= self.trainingSample_result[m]
             if (ponderation != None):
                 scalar *= ponderation[m]
-            sum     += scalar
+            sum     += scalar 
         return sum
 
+
+    def normalize(self):
+        max = -1
+        min = -1
+        for sample in xrange(self.getNbrSample()):
+            X       = self.trainingSample_feature[sample]
+            length  = vectorLength(X)
+            m0      = lowestValue(length, self.trainingSample_result[sample])
+            m1      = biggestValue(length, self.trainingSample_result[sample])
+            if ((sample == 0) or (m0 < min)):
+                min = m0
+            if ((sample == 0) or (m1 > max)):
+                max = m1
+        if (min == max):
+            raise Exception ("Unhandled special case: min = max")
+        r = max - min
+        for sample in xrange(self.getNbrSample()):
+            X = self.trainingSample_feature[sample]
+            for j in xrange(len(X)):
+                X[j] = X[j] / r
+            self.trainingSample_feature[sample] = X
 
     def printProblemInstance(self):
         print "Problem instance:\n"

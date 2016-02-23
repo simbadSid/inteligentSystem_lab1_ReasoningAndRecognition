@@ -32,16 +32,29 @@ if __name__ == "__main__":
         modelParameter  = [0.0 for i in xrange(1+pbInstance.getFeatureDimension())]
         deltaLoss       = [0.0 for i in xrange(pbInstance.nbrIteraton)]
         l0              = pbInstance.computeSquareLossSum(modelParameter) / M2
+        minDelta        = -1
+        minW            = None
+        isStrictDecrease= True
         for i in xrange(pbInstance.nbrIteraton):
             modelParameter  = improveModelParameter(modelParameter, rate, pbInstance)
             l1              = pbInstance.computeSquareLossSum(modelParameter) / M2
             deltaLoss[i]    = l1 - l0
             l0              = l1
+            if (deltaLoss[i] > 0):
+                isStrictDecrease = False
+            if ((i == 0) or (deltaLoss[i] < minDelta)):
+                minDelta    = deltaLoss[i]
+                minW        = modelParameter
         plt.plot(axis, deltaLoss, label='Delta Loss (rate = ' + str(rate) + ')')
         plt.grid()
         plt.xlabel('Iteration')
         plt.ylabel('Loss')
         plt.legend()
         plt.show()
+        print "alpha                = " + str(rate)
+        print "Optimal W            = " + str(minW)
+        print "Smallest deltaLoss   = " + str(deltaLoss[len(deltaLoss)-1])
+        print "Is monotone decrease = " + str(isStrictDecrease)
+        print "------------------"
 
 

@@ -1,5 +1,5 @@
 import os
-
+import math
 
 
 
@@ -20,3 +20,22 @@ def nextMeaningLine(file, commentString=DEFAULT_COMMENT):
         else:
             return res
     raise Exception("No usefull string found in the file " + file.name)
+
+def vectorLength(vector):
+    res = 0
+    for i in xrange(len(vector)):
+        res += math.pow(vector[i], 2)
+    return math.sqrt(res)
+
+
+def lowestValue(a, b):
+    if (a < b):
+        return a
+    else:
+        return b
+
+def biggestValue(a, b):
+    if (a > b):
+        return a
+    else:
+        return b
