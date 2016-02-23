@@ -1,0 +1,51 @@
+
+
+# Number of iterations
+100
+
+# Number of different training rates
+4
+
+# Training rates
+0.1
+0.01
+0.001
+0.0001
+
+# Number of samples
+10
+
+#
+# Dimension of each feature
+1
+
+# for each sample: Y carried by all the corresponding X
+46
+145
+
+56
+154
+
+61
+158
+
+64
+161
+
+77
+172
+
+62
+158
+
+67
+163
+
+73
+169
+
+58
+156
+
+65
+161
