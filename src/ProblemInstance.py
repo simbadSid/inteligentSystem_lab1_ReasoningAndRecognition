@@ -131,6 +131,8 @@ class ProblemInstance:
                 X[j] = X[j] / r
             self.trainingSample_feature[sample] = X
 
+
+
     def printProblemInstance(self):
         print "Problem instance:\n"
         print "\t- Number of iterations: " + int(self.nbrIteraton)
