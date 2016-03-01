@@ -19,7 +19,7 @@ def nextMeaningLine(file, commentString=DEFAULT_COMMENT):
             continue
         else:
             return res
-    raise Exception("No usefull string found in the file " + file.name)
+    raise Exception("No useful string found in the file " + file.name)
 
 def vectorLength(vector):
     res = 0

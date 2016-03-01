@@ -19,7 +19,7 @@ class ProblemInstance:
     # -----------------------------
     # Builder
     # -----------------------------
-    def parseProblemInstance(self, normalize=True, inputFileName = "resource/input/parameter.txt"):
+    def parseProblemInstance(self, inputFileName, normalize=True):
         file            = open(inputFileName)
 
         self.nbrIteraton= int(nextMeaningLine(file))
