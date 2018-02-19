@@ -23,13 +23,13 @@ def improveModelParameter(modelParameter, trainingRate, pbInstance):
 
 def processOutput(rateList, minParameter, minLoss, minDeltaLoss, axis, loss, parameter0, parameter1, isStrictDecrease=True):
     # print the results
-    print "\n"
-    print "Used rates           = " + str(rateList)
-    print "Optimal W            = " + "w0 = " + str(minParameter[0]) + "\t w1 = " + str(minParameter[1])
-    print "Smallest loss        = " + str(minLoss)
-    print "Smallest delta loss  = " + str(minDeltaLoss)
-    print "Is monotone decrease = " + str(isStrictDecrease)
-    print "------------------"
+    print ("\n")
+    print ("Used rates           = " + str(rateList))
+    print ("Optimal W            = " + "w0 = " + str(minParameter[0]) + "\t w1 = " + str(minParameter[1]))
+    print ("Smallest loss        = " + str(minLoss))
+    print ("Smallest delta loss  = " + str(minDeltaLoss))
+    print ("Is monotone decrease = " + str(isStrictDecrease))
+    print ("------------------")
 
     # Print the loss curve
     plt.plot(axis, loss,    label='Loss (with rate list = ' + str(rateList) + ')')

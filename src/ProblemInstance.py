@@ -134,18 +134,18 @@ class ProblemInstance:
 
 
     def printProblemInstance(self):
-        print "Problem instance:\n"
-        print "\t- Number of iterations: " + int(self.nbrIteraton)
+        print ("Problem instance:\n")
+        print ("\t- Number of iterations: " + int(self.nbrIteraton))
         msg = ""
         for i in xrange(len(self.trainingRate)):        # Print the training rate list
             if (i > 0):
                 msg += ", "
             msg += str(self.trainingRate[i]) 
-        print "\t- Training rate       : " + msg
-        print "\t- Number of samples   : " + str(self.getNbrSample())
-        print "\t- Feature dimension   : " + str(self.getFeatureDimension())
-        print "\t- training samples    : "
+        print ("\t- Training rate       : " + msg)
+        print ("\t- Number of samples   : " + str(self.getNbrSample()))
+        print ("\t- Feature dimension   : " + str(self.getFeatureDimension()))
+        print ("\t- training samples    : ")
         for sample in xrange(self.getNbrSample()):          # Print the training samples
-            print "\t\t y[" + str(sample) + "]\t = " + str(self.trainingSample_result[sample])
-            print "\t\t X[" + str(sample) + "]\t = " + str(self.trainingSample_feature[sample])
-            print "\t\t ------------------------------"
+            print ("\t\t y[" + str(sample) + "]\t = " + str(self.trainingSample_result[sample]))
+            print ("\t\t X[" + str(sample) + "]\t = " + str(self.trainingSample_feature[sample]))
+            print ("\t\t ------------------------------")
